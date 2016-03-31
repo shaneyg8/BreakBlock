@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GM : MonoBehaviour {
+public class GM1 : MonoBehaviour {
 	
-	public int lives = 5;
+	public int lives = 4;
 	public int bricks = 16;
 	public float resetDelay = 1f;
 	public Text livesText;
