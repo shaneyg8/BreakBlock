@@ -41,7 +41,8 @@ public class GM : MonoBehaviour {
 		{
 			youWon.SetActive(true);
 			Time.timeScale = .25f;
-			Invoke ("Reset", resetDelay);
+			//Invoke ("Reset", resetDelay);
+            Application.LoadLevel("Level2");
 		}
 		
 		if (lives < 1)
@@ -62,7 +63,7 @@ public class GM : MonoBehaviour {
 	public void LoseLife()
 	{
 		lives--;
-		livesText.text = "Lives: " + lives;
+		livesText.text = "LIVES : " + lives;
 		Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
 		Destroy(clonePaddle);
 		Invoke ("SetupPaddle", resetDelay);
