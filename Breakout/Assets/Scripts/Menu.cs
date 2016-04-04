@@ -10,9 +10,20 @@ public class Menu : MonoBehaviour {
     {
 
     }
+	
 
     public void LoadOn()
     {
         Application.LoadLevel(1);
     }
+
+	public void LoadLeader()
+	{
+		Application.LoadLevel ("LeaderboardMenu");
+	}
+
+	public void LoadBack()
+	{
+		Application.LoadLevel ("Main Menu");
+	}
 }

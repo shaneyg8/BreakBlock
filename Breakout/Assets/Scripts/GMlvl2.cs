@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+using UnityEngine.UI; //Must be inputted to use UI options like Lives etc..
 
 
 public class GMlvl2 : MonoBehaviour {
@@ -18,7 +18,8 @@ public class GMlvl2 : MonoBehaviour {
 
     private GameObject clonePaddle;
 
-    // Use this for initialization
+    // void Awake is used to start before void start()
+
     void Awake()
     {
         if (instance == null)
@@ -32,8 +33,8 @@ public class GMlvl2 : MonoBehaviour {
 
     public void Setup()
     {
-        clonePaddle = Instantiate(paddlelvl2, transform.position, Quaternion.identity) as GameObject;
-        Instantiate(blocksPrefab, new Vector3(-5.586268f, 6.611938f, 0.611002f), Quaternion.identity);
+        clonePaddle = Instantiate(paddlelvl2, transform.position, Quaternion.identity) as GameObject; //Where the position of the paddle should be
+        Instantiate(blocksPrefab, new Vector3(-5.586268f, 6.611938f, 0.611002f), Quaternion.identity); //Positions the bricks to the centre
     }
 
     void CheckGameOver()
@@ -42,7 +43,8 @@ public class GMlvl2 : MonoBehaviour {
         {
             youWon.SetActive(true);
             Time.timeScale = .25f;
-            Invoke("Reset", resetDelay);
+            //Invoke("Reset", resetDelay);
+			Application.LoadLevel("Leaderboard");
         }
 
         if (lives < 1)
