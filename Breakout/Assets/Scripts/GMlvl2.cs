@@ -8,6 +8,8 @@ public class GMlvl2 : MonoBehaviour {
     public int lives = 4;
     public int blocks = 20;
     public float resetDelay = 1f;
+    public int score = 2;
+    public int highScore;
     public Text livesText;
     public GameObject gameOver;
     public GameObject youWon;
@@ -81,5 +83,23 @@ public class GMlvl2 : MonoBehaviour {
     {
         blocks--;
         CheckGameOver();
+    }
+
+    void Start()
+    {
+        highScore = PlayerPrefs.GetInt("High Score", highScore);
+
+        if (score >= highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("High Score", highScore);
+
+        }
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("High Score : " + highScore.ToString());
+        GUILayout.Label("Current Score : " + score.ToString());
     }
 }

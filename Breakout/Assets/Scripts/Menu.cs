@@ -26,4 +26,10 @@ public class Menu : MonoBehaviour {
 	{
 		Application.LoadLevel ("Main Menu");
 	}
+
+    public void Quit()
+    {
+        Application.Quit();
+    } 
+
 }

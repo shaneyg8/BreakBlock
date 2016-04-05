@@ -7,7 +7,9 @@ public class GM : MonoBehaviour {
 	public int lives = 5;
 	public int bricks = 16;
 	public float resetDelay = 1f;
-	public Text livesText;
+    public int highScore;
+    public int score = 1;
+    public Text livesText;
 	public GameObject gameOver;
 	public GameObject youWon;
 	public GameObject bricksPrefab;
@@ -80,4 +82,23 @@ public class GM : MonoBehaviour {
 		bricks--;
 		CheckGameOver();
 	}
+
+    void Start()
+    {
+        highScore = PlayerPrefs.GetInt("High Score", highScore);
+
+        if (score>=highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("High Score", highScore);
+
+        }
+        
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("High Score : " + highScore.ToString());
+        GUILayout.Label("Current Score : " + score.ToString());
+    }
 }
